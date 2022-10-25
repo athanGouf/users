@@ -3,6 +3,6 @@ const styles = {
     overflow: 'scroll',
     maxHeight: 500,
   },
-}
+};
 
-export default styles
+export default styles;

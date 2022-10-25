@@ -1,10 +1,10 @@
-import * as React from 'react'
-import Grid from '@mui/material/Grid'
-import { makeStyles } from '@mui/styles'
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import {makeStyles} from '@mui/styles';
 
-import UsersPanel from './components/UsersPanel'
-import UsersForm from './components/UsersForm'
-import { getSingleUser, getUsers, updateUser } from './utils'
+import UsersPanel from './components/UsersPanel';
+import UsersForm from './components/UsersForm';
+import {getSingleUser, getUsers, updateUser} from './utils';
 
 const useStyles = makeStyles({
   grid: {
@@ -21,39 +21,45 @@ const useStyles = makeStyles({
     width: '100vw',
     height: '100vh',
   },
-})
+});
 
 const App = () => {
-  const [users, setUsers] = React.useState([])
-  const [singleUser, setSingleUser] = React.useState(null)
-  const classes = useStyles()
+  const [users, setUsers] = React.useState([]);
+  const [singleUser, setSingleUser] = React.useState(null);
+  const classes = useStyles();
 
   React.useEffect(() => {
     getUsers().then((users) => {
-      setUsers(users)
-    })
-  }, [])
+      setUsers(users);
+    });
+  }, []);
 
   const onSelectUser = (id) => {
     getSingleUser(id).then((user) => {
-      setSingleUser(user)
-    })
-  }
+      setSingleUser(user);
+    });
+  };
 
   const onSaveUser = (data) => {
-    updateUser(singleUser.id, data)
-  }
+    updateUser(singleUser.id, data);
+  };
+
+  const isUserSelected = (id) => id === singleUser?.id;
 
   return (
     <div className={classes.container}>
       <Grid container className={classes.grid}>
-        <UsersPanel users={users} onSelectUser={onSelectUser} />
+        <UsersPanel
+          isUserSelected={isUserSelected}
+          onSelectUser={onSelectUser}
+          users={users}
+        />
         {singleUser && (
           <UsersForm singleUser={singleUser} onSaveUser={onSaveUser} />
         )}
       </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
