@@ -3,7 +3,7 @@ export default {
   userContainer: {
     padding: '10px 0',
     width: '100%',
-    '&:hover': {cursor: 'pointer', backgroundColor: '#e8e8e8'},
+    '&:hover': { cursor: 'pointer', backgroundColor: '#e8e8e8' },
     '&.selected': {
       backgroundColor: '#1b68b3',
     },

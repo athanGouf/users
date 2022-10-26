@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
@@ -17,7 +17,7 @@ const initialFormState = {
   company: '',
 };
 
-const UsersForm = ({onSaveUser, singleUser}) => {
+const UsersForm = ({ onSaveUser, singleUser }) => {
   const [form, setForm] = useState(initialFormState);
   const [edit, setEdit] = useState(false);
   const classes = useStyles();
@@ -27,15 +27,15 @@ const UsersForm = ({onSaveUser, singleUser}) => {
     setForm(singleUser);
   }, [singleUser]);
 
-  const handleChange = ({name, value}) => {
+  const handleChange = ({ name, value }) => {
     setEdit(true);
-    setForm((prev) => ({
+    setForm(prev => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const onChange = ({target}) => {
+  const onChange = ({ target }) => {
     handleChange(target);
   };
   const onSave = () => {
@@ -62,7 +62,7 @@ const UsersForm = ({onSaveUser, singleUser}) => {
           <InputLabel
             shrink
             htmlFor="bootstrap-input"
-            sx={{position: 'relative'}}
+            sx={{ position: 'relative' }}
           >
             Name
           </InputLabel>
@@ -78,7 +78,7 @@ const UsersForm = ({onSaveUser, singleUser}) => {
           <InputLabel
             shrink
             htmlFor="bootstrap-input"
-            sx={{position: 'relative'}}
+            sx={{ position: 'relative' }}
           >
             Email address
           </InputLabel>
@@ -94,7 +94,7 @@ const UsersForm = ({onSaveUser, singleUser}) => {
           <InputLabel
             shrink
             htmlFor="bootstrap-input"
-            sx={{position: 'relative'}}
+            sx={{ position: 'relative' }}
           >
             Phone
           </InputLabel>
@@ -110,7 +110,7 @@ const UsersForm = ({onSaveUser, singleUser}) => {
           <InputLabel
             shrink
             htmlFor="bootstrap-input"
-            sx={{position: 'relative'}}
+            sx={{ position: 'relative' }}
           >
             Address
           </InputLabel>
@@ -125,7 +125,7 @@ const UsersForm = ({onSaveUser, singleUser}) => {
           <InputLabel
             shrink
             htmlFor="bootstrap-input"
-            sx={{position: 'relative'}}
+            sx={{ position: 'relative' }}
           >
             Company
           </InputLabel>

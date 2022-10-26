@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import {makeStyles} from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 
 import UsersPanel from './components/UsersPanel';
 import UsersForm from './components/UsersForm';
-import {getSingleUser, getUsers, updateUser} from './utils';
+import { getSingleUser, getUsers, updateUser } from './utils';
 
 const useStyles = makeStyles({
   grid: {
@@ -29,22 +29,22 @@ const App = () => {
   const classes = useStyles();
 
   React.useEffect(() => {
-    getUsers().then((users) => {
+    getUsers().then(users => {
       setUsers(users);
     });
   }, []);
 
-  const onSelectUser = (id) => {
-    getSingleUser(id).then((user) => {
+  const onSelectUser = id => {
+    getSingleUser(id).then(user => {
       setSingleUser(user);
     });
   };
 
-  const onSaveUser = (data) => {
+  const onSaveUser = data => {
     updateUser(singleUser.id, data);
   };
 
-  const isUserSelected = (id) => id === singleUser?.id;
+  const isUserSelected = id => id === singleUser?.id;
 
   return (
     <div className={classes.container}>
